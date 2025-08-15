@@ -1,5 +1,6 @@
 import { schedulesDay } from "./load.js";
 import { scheduleCancel } from "../../services/schedule-cancel.js";
+import { apiConfig } from "../../services/api-config.js";
 
 const periods = document.querySelectorAll(".period");
 
@@ -15,7 +16,7 @@ periods.forEach((period) => {
         );
 
         if (isConfirm) {
-          await scheduleCancel({ id });
+          await scheduleCancel(id);
           schedulesDay();
         }
       }
